@@ -86,7 +86,8 @@ def play(players, deck, first_shuffle=True):
     """
     while len(players) > 1:
 
-        if len(deck.cards) < 52:
+        # reshuffle after 50% penetration
+        if len(deck.cards) < 52 * deck.num_decks * 0.5:
             deck.cards = []
             deck.create()
             deck.shuffle()
@@ -102,10 +103,11 @@ def play(players, deck, first_shuffle=True):
                 shuffle_str = f'{Format.BOLD}{shuffle_str}{Format.END}'
 
             elif deck.num_decks == 1:
-                shuffle_str = 'Re-shuffling Deck'
+                shuffle_str = f'{Format.BOLD}Re-shuffling Deck{Format.END}'
 
             else:
-                shuffle_str = f'Re-shuffling {deck.num_decks} deck shoe.'
+                shuffle_str = f'{Format.BOLD}Re-shuffling ' \
+                              f'{deck.num_decks} deck shoe.{Format.END}'
 
             print(f'\n{shuffle_str}\n')
             time.sleep(1)
