@@ -13,3 +13,6 @@ Command line version of the classic card game, Blackjack in Python
 - Blackjack pays 3:2
 - Dealer must hit a soft 17
 - Shoe is reshuffled after 50% penetration
+
+# Usage
+>\$> python blackjack.py
